@@ -5,17 +5,17 @@ import { ModeToggle } from '../mode-toggle.';
 
 export default function Nav() {
   return (
-    <div className="flex h-14 w-full items-center justify-between px-4 mt-1">
+    <div className="mt-1 flex h-14 w-full items-center justify-between px-4">
       {/* Left */}
-      <div className="flex w-fit items-center justify-center space-x-4 mr-2">
+      <div className="mr-2 flex w-fit items-center justify-center space-x-3">
         <NavButton text="PROJECTS" />
         <NavButton text="CONTACT" />
         <NavButton text="ABOUT US" />
-        <ModeToggle/>
+        <ModeToggle />
       </div>
       {/* Right */}
       <div className="flex w-fit items-center justify-center space-x-4">
-        <Button variant={"default"} >
+        <Button variant={"default"} className="rounded-full px-4 py-0 text-lg">
           Register
         </Button>
       </div>
