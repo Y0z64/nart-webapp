@@ -5,7 +5,6 @@ import Back from "~/assets/bakground.svg?react";
 import HeroLogo from "~/components/atoms/HeroLogo";
 import {
   motion,
-  useMotionValueEvent,
   useScroll,
   useTransform,
 } from "framer-motion";
@@ -17,10 +16,6 @@ export default function Hero() {
 
   const offset = motionValue(1);
   const opacity = useTransform(() => offset.get() - scrollYProgress.get());
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(latest);
-  });
 
   return (
     <div
