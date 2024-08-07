@@ -1,11 +1,10 @@
-import NavButton from "../atoms/NavButton";
-import { Button } from "../ui/button";
+import NavButton from '../atoms/NavButton';
 import { ModeToggle } from "../mode-toggle.";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useState } from "react";
 
 export default function Nav() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(true);
   const { scrollYProgress } = useScroll({  });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -18,7 +17,7 @@ export default function Nav() {
     <motion.div
       layout
       className="left-0 top-0 mt-1 flex h-14 w-full items-center justify-between px-4"
-      animate={{ y: isScrolled ? 0 : -100}}
+      animate={{ y: isScrolled ? 7 : -100}}
     >
       {/* Left */}
       <div className="mr-2 flex w-fit items-center justify-center space-x-3">
@@ -29,9 +28,7 @@ export default function Nav() {
       </div>
       {/* Right */}
       <div className="flex w-fit items-center justify-center space-x-4">
-        <Button variant={"default"} className="rounded-full px-4 text-lg">
-          Register
-        </Button>
+        <NavButton text="REGISTER" />
       </div>
     </motion.div>
   );

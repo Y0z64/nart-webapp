@@ -1,13 +1,10 @@
-import Nav from "./components/particles/Navbar";
+import Hero from "./components/pages/Hero";
 
 function App() {
   return (
     <>
-      <div className="relative flex h-screen w-screen flex-col items-center justify-start">
-        <Nav />
-      </div>
-      <div className="flex h-screen w-screen flex-col items-center justify-start">
-      </div>
+      <Hero />
+      <div className="flex h-screen w-screen flex-col items-center justify-start"></div>
     </>
   );
 }
