@@ -29,7 +29,7 @@ export default function HeroLogo() {
           scale: { duration: 1.5, ease: "easeOut" },
         }}
       >
-        <Logo className="mb-20 h-[37rem] w-[75rem]" />
+        <Logo className="mb-20 w-[22rem] md:h-[37rem] md:w-[45rem] xl:w-[55rem] 2xl:w-[75rem]" />
       </motion.div>
     </div>
   );

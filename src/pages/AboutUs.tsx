@@ -2,10 +2,11 @@ import VerticalText from "@/components/atoms/TextColumn";
 
 export default function AboutUs() {
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center" id="nosotros">
-      <div className="flex h-fit w-10/12 items-center justify-center space-x-10">
+    <div className="flex h-fit md:h-screen w-screen flex-col items-center justify-center" id="nosotros">
+      <div className="flex flex-col md:flex-row h-fit w-full px-5 md:w-10/12 items-center justify-center md:space-x-10">
         <VerticalText text="NOSOTROS"/>
-        <span className=" w-full text-[65px]">
+        <h1 className="text-[3rem] font-bold tracking-widest flex md:hidden mb-2">NOSOTROS</h1>
+        <span className=" w-full text-[1.5rem] md:text-[2.45rem] xl:text-[3rem] 2xl:text-[4.0625rem]">
           Nart es una empresa dedicada al desarrollo artísticas inmersivas y
           personalizadas, adaptadas a las necesidades de cada cliente.
           Utilizamos tecnologías avanzadas y diversos datasets (EEG,
