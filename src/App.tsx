@@ -9,7 +9,7 @@ function App() {
       <Hero />
       <AboutUs />
       <Experiences/>
-      <Footer/>
+      <Footer />
     </>
   );
 }
