@@ -23,11 +23,7 @@ export default function HeroParticles() {
 
   const options: ISourceOptions = useMemo(
     () => ({
-      fullScreen: {
-        enable: true,
-        zIndex: -100,
-      },
-      fpsLimit: 60,
+      fpsLimit: 120,
       interactivity: {
         events: {
           onClick: {
@@ -41,11 +37,11 @@ export default function HeroParticles() {
         },
         modes: {
           bubble: {
-            distance: 275,
+            distance: 250,
             size: 0,
             duration: 2,
             opacity: 0,
-            speed: 4,
+            speed: 3,
           },
           repulse: {
             distance: 400,
@@ -67,7 +63,7 @@ export default function HeroParticles() {
       },
       particles: {
         number: {
-          value: 260,
+          value: 160,
           density: {
             enable: true,
             value_area: 800,
@@ -78,33 +74,49 @@ export default function HeroParticles() {
         },
         shape: {
           type: "circle",
+          stroke: {
+            width: 0,
+            color: "#000000",
+          },
           polygon: {
             nb_sides: 5,
           },
+          image: {
+            src: "img/github.svg",
+            width: 100,
+            height: 100,
+          },
         },
         opacity: {
-          value: 0.4,
+          value: 0.8,
           random: true,
           anim: {
             enable: true,
-            speed: 1.5,
-            opacity_min: 0.1,
+            speed: 1,
+            opacity_min: 0,
             sync: false,
           },
         },
         size: {
-          value: 1,
+          value: 1.5,
           random: true,
           anim: {
             enable: false,
             speed: 4,
-            size_min: 0.1,
+            size_min: 0.3,
             sync: false,
           },
         },
+        links: {
+          enable: false,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1,
+        },
         move: {
           enable: true,
-          speed: 1.3,
+          speed: 1,
           direction: "none",
           random: true,
           straight: false,
