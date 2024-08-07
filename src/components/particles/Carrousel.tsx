@@ -3,13 +3,13 @@ import { useRef, useState } from "react";
 import { motion, PanInfo, useMotionValue } from "framer-motion";
 
 const imgs = [
-  "/public/images/image1.png",
-  "/public/images/image2.png",
-  "/public/images/image3.png",
-  "/public/images/image4.png",
-  "/public/images/image5.png",
-  "/public/images/image6.png",
-  "/public/images/image7.png",
+  "/images/image1.png",
+  "/images/image2.png",
+  "/images/image3.png",
+  "/images/image4.png",
+  "/images/image5.png",
+  "/images/image6.png",
+  "/images/image7.png",
 ];
 
 const SPRING_OPTIONS = {
