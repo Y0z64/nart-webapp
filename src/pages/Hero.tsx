@@ -24,7 +24,7 @@ export default function Hero() {
     >
       {/* Background */}
       <motion.div
-        className="absolute flex h-screen w-screen scale-110 items-center justify-center overflow-hidden"
+        className="absolute flex md:rotate-0 h-screen w-screen scale-110 items-center justify-center overflow-hidden"
         initial={{ y: 0, x: 0 }}
         animate={{
           y: [0, -11, 0, 11, 0],
@@ -37,7 +37,7 @@ export default function Hero() {
           ease: "easeInOut",
         }}
       >
-        <Back />
+        <Back className="rotate-90 scale-[1.8] md:scale-100 md:rotate-0"/>
       </motion.div>
       {/* Particles */}
       <motion.div
