@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import { motion, useMotionValue } from "framer-motion";
+import { motion, PanInfo, useMotionValue } from "framer-motion";
 
 const imgs = [
-  "../../../public/images/image1.png",
   "../../../public/images/image1.png",
   "../../../public/images/image1.png",
   "../../../public/images/image1.png",
@@ -26,63 +25,62 @@ const SPRING_OPTIONS = {
   damping: 50,
 };
 
-export const SwipeCarousel = () => {
+export const SwipeCarousel: React.FC = () => {
   const [imgIndex, setImgIndex] = useState(0);
-
+  const containerRef = useRef<HTMLDivElement>(null);
   const dragX = useMotionValue(0);
 
   useEffect(() => {
     const intervalRef = setInterval(() => {
       const x = dragX.get();
-
       if (x === 0) {
-        setImgIndex((pv) => {
-          if (pv === imgs.length - 1) {
-            return 0;
-          }
-
-          return pv + 1;
-        });
+        setImgIndex((pv) => (pv === imgs.length - 1 ? 0 : pv + 1));
       }
     }, AUTO_DELAY);
-
     return () => clearInterval(intervalRef);
   }, []);
 
-  const onDragEnd = () => {
-    const x = dragX.get();
+  const onDragEnd = (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo,
+  ) => {
+    if (containerRef.current) {
+      const containerWidth = containerRef.current.offsetWidth;
+      const dragThreshold = containerWidth * 0.2; // Reduced from 0.4 to 0.2
+      const draggedDistance = info.offset.x;
+      const dragVelocity = info.velocity.x;
 
-    if (x <= -DRAG_BUFFER && imgIndex < imgs.length - 1) {
-      setImgIndex((pv) => pv + 1);
-    } else if (x >= DRAG_BUFFER && imgIndex > 0) {
-      setImgIndex((pv) => pv - 1);
+      if (
+        (draggedDistance < -dragThreshold && imgIndex < imgs.length - 1) ||
+        (dragVelocity < -500 && imgIndex < imgs.length - 1)
+      ) {
+        setImgIndex((pv) => pv + 1);
+      } else if (
+        (draggedDistance > dragThreshold && imgIndex > 0) ||
+        (dragVelocity > 500 && imgIndex > 0)
+      ) {
+        setImgIndex((pv) => pv - 1);
+      }
     }
+
+    dragX.set(0);
   };
 
   return (
     <div className="relative overflow-hidden bg-neutral-950 py-8">
       <motion.div
+        ref={containerRef}
         drag="x"
-        dragConstraints={{
-          left: 0,
-
-          right: 0,
-        }}
-        style={{
-          x: dragX,
-        }}
-        animate={{
-          translateX: `-${imgIndex * 100}%`,
-        }}
+        dragConstraints={{ left: 0, right: 0 }}
+        style={{ x: dragX }}
+        animate={{ translateX: `-${imgIndex * 100}%` }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
-        className="flex cursor-grab items-center active:cursor-grabbing"
+        className="flex cursor-grab items-center justify-start active:cursor-grabbing"
       >
         <Images imgIndex={imgIndex} />
       </motion.div>
-
       <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} />
-
       <GradientEdges />
     </div>
   );
