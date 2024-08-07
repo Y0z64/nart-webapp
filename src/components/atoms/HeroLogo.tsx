@@ -5,7 +5,7 @@ export default function HeroLogo() {
   return (
     <div className="absolute inset-0 flex items-center justify-center">
       <motion.div
-        className="mt-8 h-fit w-fit outline"
+        className="mt-8 h-fit w-fit"
         initial={{ opacity: 0, scale: 0.9, filter: "blur(0px)", y: 0, x: 0 }}
         animate={{
           opacity: 1,
