@@ -17,7 +17,7 @@ export default function Nav() {
     <motion.div
       layout
       className="left-0 top-0 mt-1 flex h-14 w-full items-center justify-between px-4"
-      animate={{ y: isScrolled ? 7 : -100}}
+      animate={{ y: isScrolled ? 7 : -50}}
     >
       {/* Left */}
       <div className="mr-2 flex w-fit items-center justify-center space-x-3">
