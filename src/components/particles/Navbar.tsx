@@ -21,7 +21,7 @@ export default function Nav() {
       <div className="mr-2 flex w-fit items-center justify-center space-x-3">
         <NavButton text="PROJECTS" />
         <NavButton text="CONTACT" />
-        <NavButton text="ABOUT US" />
+        <NavButton text="ABOUT US" link='#nosotros'/>
         <ModeToggle />
       </div>
       {/* Right */}

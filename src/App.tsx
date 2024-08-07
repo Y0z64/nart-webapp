@@ -1,11 +1,11 @@
-import Hero from "./components/pages/Hero";
+import Hero from "./pages/Hero";
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
     <>
       <Hero />
-      <div className="flex h-screen w-screen flex-col items-center justify-start">
-      </div>
+      <AboutUs />
     </>
   );
 }

@@ -1,16 +1,15 @@
 /// <reference types="vite-plugin-svgr/client" />
-/// <reference types="../../types/svg-rules.d.ts" />
 
 import Nav from "~/components/particles/Navbar";
 import Back from "~/assets/bakground.svg?react";
-import HeroLogo from "../atoms/HeroLogo";
+import HeroLogo from "~/components/atoms/HeroLogo";
 import {
   motion,
   useMotionValueEvent,
   useScroll,
   useTransform,
 } from "framer-motion";
-import HeroParticles from "../particles/Particles";
+import HeroParticles from "~/components/particles/Particles";
 import { motionValue } from "framer-motion/dom";
 
 export default function Hero() {
