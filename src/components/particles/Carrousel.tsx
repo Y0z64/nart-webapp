@@ -62,7 +62,7 @@ export const SwipeCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative mx-auto w-full max-w-screen-2xl py-8">
+    <div className="relative mx-auto w-full sm:max-w-screen-sm md:max-w-screen-md xl:max-w-screen-xl 4xl:max-w-screen-2xl py-8">
       <motion.div
         ref={containerRef}
         drag="x"
