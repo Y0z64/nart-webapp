@@ -4,8 +4,12 @@ import { motion, PanInfo, useMotionValue } from "framer-motion";
 
 const imgs = [
   "/public/images/image1.png",
-  "/public/images/image1.png",
-  "/public/images/image1.png",
+  "/public/images/image2.png",
+  "/public/images/image3.png",
+  "/public/images/image4.png",
+  "/public/images/image5.png",
+  "/public/images/image6.png",
+  "/public/images/image7.png",
 ];
 
 const SPRING_OPTIONS = {
