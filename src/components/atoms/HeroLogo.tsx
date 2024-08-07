@@ -5,8 +5,10 @@ export default function HeroLogo() {
   return (
     <motion.div
       className="mb-10 h-fit w-fit"
-      initial={{ filter: "blur(0px)", y: 0, x: 0 }}
+      initial={{ opacity: 0, scale: 0.9, filter: "blur(0px)", y: 0, x: 0 }}
       animate={{
+        opacity: 1,
+        scale: 1,
         filter: [
           "blur(0px)",
           "blur(1px)",
@@ -22,6 +24,8 @@ export default function HeroLogo() {
         repeat: Infinity,
         repeatType: "reverse",
         ease: "easeInOut",
+        opacity: { duration: 1.5, ease: "easeInOut" },
+        scale: { duration: 1.5, ease: "easeOut" },
       }}
     >
       <Logo className="mb-20 h-[75rem] w-[75rem]" />
