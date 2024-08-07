@@ -15,7 +15,7 @@ export default function Nav() {
       </div>
       {/* Right */}
       <div className="flex w-fit items-center justify-center space-x-4">
-        <Button variant={"default"} className="rounded-full px-4 py-0 text-lg">
+        <Button variant={"default"} className="rounded-full px-4 text-lg">
           Register
         </Button>
       </div>
