@@ -1,19 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import { motion, PanInfo, useMotionValue } from "framer-motion";
 
 const imgs = [
-  "../../../public/images/image1.png",
-  "../../../public/images/image1.png",
-  "../../../public/images/image1.png",
-  "../../../public/images/image1.png",
+  "/public/images/image1.png",
+  "/public/images/image1.png",
+  "/public/images/image1.png",
 ];
-
-const ONE_SECOND = 1000;
-
-const AUTO_DELAY = ONE_SECOND * 10;
-
-const DRAG_BUFFER = 50;
 
 const SPRING_OPTIONS = {
   type: "spring",
@@ -30,23 +23,13 @@ export const SwipeCarousel: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const dragX = useMotionValue(0);
 
-  useEffect(() => {
-    const intervalRef = setInterval(() => {
-      const x = dragX.get();
-      if (x === 0) {
-        setImgIndex((pv) => (pv === imgs.length - 1 ? 0 : pv + 1));
-      }
-    }, AUTO_DELAY);
-    return () => clearInterval(intervalRef);
-  }, []);
-
   const onDragEnd = (
-    event: MouseEvent | TouchEvent | PointerEvent,
+    _event: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo,
   ) => {
     if (containerRef.current) {
       const containerWidth = containerRef.current.offsetWidth;
-      const dragThreshold = containerWidth * 0.2; // Reduced from 0.4 to 0.2
+      const dragThreshold = containerWidth * 0.2;
       const draggedDistance = info.offset.x;
       const dragVelocity = info.velocity.x;
 
@@ -67,7 +50,7 @@ export const SwipeCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative overflow-hidden bg-neutral-950 py-8">
+    <div className="relative mx-auto w-full max-w-screen-2xl  py-8">
       <motion.div
         ref={containerRef}
         drag="x"
@@ -81,38 +64,43 @@ export const SwipeCarousel: React.FC = () => {
         <Images imgIndex={imgIndex} />
       </motion.div>
       <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} />
-      <GradientEdges />
     </div>
   );
 };
 
-const Images = ({ imgIndex }: { imgIndex: number }) => {
+interface ImagesProps {
+  imgIndex: number;
+}
+
+const Images: React.FC<ImagesProps> = ({ imgIndex }) => {
   return (
     <>
-      {imgs.map((imgSrc, idx) => {
-        return (
-          <motion.div
-            key={idx}
-            style={{
-              backgroundImage: `url(${imgSrc})`,
-
-              backgroundSize: "cover",
-
-              backgroundPosition: "center",
-            }}
-            animate={{
-              scale: imgIndex === idx ? 0.95 : 0.85,
-            }}
-            transition={SPRING_OPTIONS}
-            className="aspect-video w-screen shrink-0 rounded-xl bg-neutral-800 object-cover"
-          />
-        );
-      })}
+      {imgs.map((imgSrc, idx) => (
+        <motion.div
+          key={idx}
+          style={{
+            backgroundImage: `url(${imgSrc})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          animate={{
+            scale: imgIndex === idx ? 0.95 : 0.85,
+          }}
+          transition={SPRING_OPTIONS}
+          className="aspect-video w-full shrink-0 rounded-xl bg-neutral-800 object-cover"
+        />
+      ))}
     </>
   );
 };
 
-const Dots = ({ imgIndex, setImgIndex }: { imgIndex: number, setImgIndex: (n: number) => void }) => {
+const Dots = ({
+  imgIndex,
+  setImgIndex,
+}: {
+  imgIndex: number;
+  setImgIndex: (n: number) => void;
+}) => {
   return (
     <div className="mt-4 flex w-full justify-center gap-2">
       {imgs.map((_, idx) => {
@@ -127,15 +115,5 @@ const Dots = ({ imgIndex, setImgIndex }: { imgIndex: number, setImgIndex: (n: nu
         );
       })}
     </div>
-  );
-};
-
-const GradientEdges = () => {
-  return (
-    <>
-      <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
-
-      <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
-    </>
   );
 };

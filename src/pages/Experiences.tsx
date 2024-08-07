@@ -6,7 +6,8 @@ export default function Experiences() {
       className="flex h-screen w-screen flex-col items-center justify-center overflow-hidden"
       id="experiencias"
     >
-      <div className='flex justify-start items-start w-full h-full'><SwipeCarousel/></div>
+      <h1 className="text-[5rem] font-bold tracking-widest">EXPERIENCIAS</h1>
+      <SwipeCarousel />
     </div>
   );
 }
