@@ -18,6 +18,14 @@ const SPRING_OPTIONS = {
   damping: 50,
 };
 
+/* 
+  This is a simple image carousel that allows you to swipe through images.
+  It uses framer-motion for animations and gestures.
+  It also has a dot navigation to jump to a specific image.
+
+  @param imgs: An array of images, ALL IMAGES MUST HAVE THE SAME WIDTH.
+
+*/
 export const SwipeCarousel: React.FC = () => {
   const [imgIndex, setImgIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -50,7 +58,7 @@ export const SwipeCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative mx-auto w-full max-w-screen-2xl  py-8">
+    <div className="relative mx-auto w-full max-w-screen-2xl py-8">
       <motion.div
         ref={containerRef}
         drag="x"
