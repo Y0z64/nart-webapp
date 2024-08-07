@@ -15,19 +15,25 @@ export default function Nav() {
     <>
       <motion.div
         layout
-        className="left-0 top-0 z-50 mt-1 flex h-fit md:h-14 w-full items-center justify-between px-4"
+        className="left-0 top-0 z-50 mt-1 flex h-fit w-full items-center justify-between px-4 md:h-14"
         animate={{ y: isScrolled ? 9 : -80 }}
       >
         {/* Left */}
-        <div className="mr-2 -ml-2 md:ml-0 flex w-fit items-start space-y-2 md:space-y-0 md:justify-center justify-center flex-col md:space-x-3 md:flex-row">
+        <div className="-ml-2 mr-2 flex w-fit flex-col items-start justify-center space-y-2 md:ml-0 md:flex-row md:justify-center md:space-x-3 md:space-y-0">
           <NavButton text="NOSOTROS" link="#nosotros" />
           <NavButton text="EXPERIENCIAS" link="#experiencias" />
-          <NavButton text="CONTACTO" />
+          <NavButton
+            text="CONTACTO"
+            link="https://forms.gle/8G3bKFHf7aY8M8j97"
+          />
           <ModeToggle />
         </div>
         {/* Right */}
-        <div className="md:flex w-fit items-center justify-center space-x-4 hidden">
-          <NavButton text="REGISTRATE" />
+        <div className="hidden w-fit items-center justify-center space-x-4 md:flex">
+          <NavButton
+            text="REGISTRATE"
+            link="https://forms.gle/8G3bKFHf7aY8M8j97"
+          />
         </div>
       </motion.div>
     </>
