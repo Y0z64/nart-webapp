@@ -17,8 +17,8 @@ export default function HeroLogo() {
             "blur(1px)",
             "blur(0px)",
           ],
-          y: [0, -5, 0, 5, 0],
-          x: [0, 2, 0, -2, 0],
+          y: [0, -10, 0, 10, 0],
+          x: [0, 5, 0, -5, 0],
         }}
         transition={{
           duration: 8,

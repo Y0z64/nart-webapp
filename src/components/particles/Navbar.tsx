@@ -8,15 +8,13 @@ export default function Nav() {
   const { scrollYProgress } = useScroll({  });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(latest);
-    console.log(latest < 0.001 ? "true" : "false");
     setIsScrolled(latest < 0.001);
   });
 
   return (
     <motion.div
       layout
-      className="left-0 top-0 mt-1 flex h-14 w-full items-center justify-between px-4"
+      className="left-0 top-0 mt-1 flex h-14 w-full items-center justify-between px-4 z-50"
       animate={{ y: isScrolled ? 9 : -80}}
     >
       {/* Left */}
