@@ -1,11 +1,15 @@
-import Hero from "./components/pages/Hero";
+import Hero from "./pages/Hero";
+import AboutUs from './pages/AboutUs';
+import Experiences from './pages/Experiences';
+import Footer from './components/particles/Footer';
 
 function App() {
   return (
     <>
       <Hero />
-      <div className="flex h-screen w-screen flex-col items-center justify-start">
-      </div>
+      <AboutUs />
+      <Experiences/>
+      <Footer/>
     </>
   );
 }

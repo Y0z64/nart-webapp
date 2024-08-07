@@ -20,7 +20,7 @@ export default function HeroParticles() {
   }, []);
 
   const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
+    console.log("Particles set correctly: ", container);
   };
 
   const options: ISourceOptions = useMemo(
