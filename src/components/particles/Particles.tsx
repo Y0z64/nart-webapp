@@ -4,11 +4,9 @@ import { type Container, type ISourceOptions } from "@tsparticles/engine";
 // import { loadAll } from "@tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
 // import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-import { useTheme } from "../theme-provider";
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
 
 export default function HeroParticles() {
-  const {theme} = useTheme();
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -29,7 +27,7 @@ export default function HeroParticles() {
         enable: true,
         zIndex: -100,
       },
-      fpsLimit: 40,
+      fpsLimit: 60,
       interactivity: {
         events: {
           onClick: {
@@ -43,11 +41,11 @@ export default function HeroParticles() {
         },
         modes: {
           bubble: {
-            distance: 250,
+            distance: 275,
             size: 0,
             duration: 2,
             opacity: 0,
-            speed: 3,
+            speed: 4,
           },
           repulse: {
             distance: 400,
@@ -89,7 +87,7 @@ export default function HeroParticles() {
           random: true,
           anim: {
             enable: true,
-            speed: 1,
+            speed: 1.5,
             opacity_min: 0.1,
             sync: false,
           },
@@ -106,7 +104,7 @@ export default function HeroParticles() {
         },
         move: {
           enable: true,
-          speed: 1,
+          speed: 1.3,
           direction: "none",
           random: true,
           straight: false,
@@ -121,36 +119,6 @@ export default function HeroParticles() {
           },
         },
       },
-      themes: [
-        {
-          name: "light",
-          default: {
-            value: theme === "light",
-            mode: "light",
-          },
-          options: {
-            particles: {
-              color: {
-                value: "#ffffff",
-              },
-            },
-          },
-        },
-        {
-          name: "dark",
-          default: {
-            value: theme === "dark",
-            mode: "dark",
-          },
-          options: {
-            particles: {
-              color: {
-                value: "#000000",
-              },
-            },
-          },
-        },
-      ],
       detectRetina: true,
     }),
     [],
