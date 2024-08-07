@@ -2,7 +2,7 @@ import VerticalText from "@/components/atoms/TextColumn";
 
 export default function AboutUs() {
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center" id="nosotros">
+    <div className="flex h-fit md:h-screen w-screen flex-col items-center justify-center" id="nosotros">
       <div className="flex flex-col md:flex-row h-fit w-full px-5 md:w-10/12 items-center justify-center md:space-x-10">
         <VerticalText text="NOSOTROS"/>
         <h1 className="text-[3rem] font-bold tracking-widest flex md:hidden mb-2">NOSOTROS</h1>

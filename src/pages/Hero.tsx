@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <div
       id="hero"
-      className="relative flex flex-col items-center justify-start overflow-hidden"
+      className="relative w-screen md:h-screen h-fit flex flex-col items-center justify-start overflow-hidden"
     >
       {/* Background */}
       <motion.div
