@@ -27,7 +27,7 @@ const SPRING_OPTIONS = {
   It uses framer-motion for animations and gestures.
   It also has a dot navigation to jump to a specific image.
 
-  @param imgs: An array of images, ALL IMAGES MUST HAVE THE SAME WIDTH.
+  @param imgs: An array of images
 
 */
 export const SwipeCarousel: React.FC = () => {
